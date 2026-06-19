@@ -1115,3 +1115,83 @@ body {
     filter: brightness(1.2);
 }
 
+/* Mobile Centering Fixes */
+@media (max-width: 768px) {
+    /* Center the main container layout */
+    .container, .main-container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Center text alignments for hero and cards */
+    .hero-section, 
+    .glass-card, 
+    .about-card, 
+    .campus-info-card, 
+    .card-header {
+        text-align: center !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* Center the badge and stats blocks */
+    .hero-badge {
+        margin: 0 auto 15px auto !important;
+    }
+
+    .stats-row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .stat-card {
+        width: 100%;
+        max-width: 280px; /* Keeps stats cards neat instead of stretching too wide */
+    }
+
+    /* Center form elements inside the grid */
+    .form-grid {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-group {
+        width: 100%;
+        max-width: 400px; /* Keeps form fields clean on mobile */
+        text-align: left; /* Keeps text inputs naturally left-aligned inside a centered container */
+    }
+
+    /* Center list items and social icons */
+    .campus-facts {
+        text-align: left; /* Keeps facts readable while the container is centered */
+        padding-left: 0;
+        max-width: 450px;
+    }
+
+    .helpdesk-contacts {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .contact-item {
+        justify-content: center;
+        text-align: center;
+    }
+}
