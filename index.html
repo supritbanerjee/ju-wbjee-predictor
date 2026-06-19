@@ -42,7 +42,12 @@
                 </div>
             </div>
             
-            <nav class="nav">
+            <!-- Mobile Menu Toggle Button -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            
+            <nav class="nav" id="main-nav">
                 <a href="#predictor-section" class="nav-link active"><i class="fa-solid fa-wand-magic-sparkles"></i> Predictor</a>
                 <a href="#explorer-section" class="nav-link"><i class="fa-solid fa-magnifying-glass-chart"></i> Cutoff Explorer</a>
                 <a href="#about-section" class="nav-link"><i class="fa-solid fa-circle-info"></i> Helpdesk & About</a>
@@ -91,13 +96,13 @@
                 <!-- Channel Selector Tabs -->
                 <div class="tabs-container">
                     <button class="tab-btn active" id="tab-wbjee" onclick="switchChannel('wbjee')">
-                        <i class="fa-solid fa-graduation-cap"></i> WBJEE (B.E/B.Tech)
+                        <i class="fa-solid fa-graduation-cap"></i> WBJEE
                     </button>
                     <button class="tab-btn" id="tab-jeemain" onclick="switchChannel('jeemain')">
-                        <i class="fa-solid fa-atom"></i> JEE Main (All India)
+                        <i class="fa-solid fa-atom"></i> JEE Main
                     </button>
                     <button class="tab-btn" id="tab-jelet" onclick="switchChannel('jelet')">
-                        <i class="fa-solid fa-arrow-right-to-bracket"></i> JELET (Lateral Entry)
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i> JELET
                     </button>
                     <button class="tab-btn" id="tab-bpharm" onclick="switchChannel('bpharm')">
                         <i class="fa-solid fa-prescription-bottle-medical"></i> B.Pharm
@@ -148,7 +153,7 @@
                 </form>
             </div>
 
-            <!-- Prediction Results Display (Initially hidden or shows stats) -->
+            <!-- Prediction Results Display -->
             <div id="results-container" class="results-container hidden">
                 <div class="results-header">
                     <h3 class="results-title">
@@ -169,7 +174,7 @@
                         <i class="fa-solid fa-circle-info"></i>
                         <div>
                             <span class="badge-num" id="count-moderate">0</span>
-                            <span class="badge-lbl">Borderline / Possible</span>
+                            <span class="badge-lbl">Possible</span>
                         </div>
                     </div>
                     <div class="summary-badge probability-low">
@@ -191,47 +196,47 @@
             <div id="welcome-dashboard" class="welcome-dashboard">
                 <div class="glass-card dashboard-card">
                     <h3><i class="fa-solid fa-chart-line"></i> Jadavpur University Closing Cutoffs (2025 vs 2024)</h3>
-                    <p class="dash-subtitle">Home State - General Category Round 2 closing ranks for top engineering branches:</p>
+                    <p class="dash-subtitle">Home State - General Category Round 2 closing ranks:</p>
                     <div class="table-responsive">
                         <table class="dash-table">
                             <thead>
                                 <tr>
-                                    <th>Branch / Course</th>
-                                    <th class="text-center">2024 closing</th>
-                                    <th class="text-center">2025 closing</th>
+                                    <th>Branch</th>
+                                    <th class="text-center">2024</th>
+                                    <th class="text-center">2025</th>
                                     <th class="text-center">Trend</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Computer Science & Engineering</td>
+                                    <td>Computer Science & Engg.</td>
                                     <td class="text-center">309</td>
                                     <td class="text-center">238</td>
-                                    <td class="text-center trend-up"><i class="fa-solid fa-chart-line"></i> Tougher (+71)</td>
+                                    <td class="text-center trend-up">Tougher (+71)</td>
                                 </tr>
                                 <tr>
                                     <td>Information Technology</td>
                                     <td class="text-center">445</td>
                                     <td class="text-center">469</td>
-                                    <td class="text-center trend-down"><i class="fa-solid fa-chart-line-down"></i> Easier (-24)</td>
+                                    <td class="text-center trend-down">Easier (-24)</td>
                                 </tr>
                                 <tr>
-                                    <td>Electronics & Telecommunication Engg.</td>
+                                    <td>Electronics & Telecomm.</td>
                                     <td class="text-center">490</td>
                                     <td class="text-center">445</td>
-                                    <td class="text-center trend-up"><i class="fa-solid fa-chart-line"></i> Tougher (+45)</td>
+                                    <td class="text-center trend-up">Tougher (+45)</td>
                                 </tr>
                                 <tr>
                                     <td>Electrical Engineering</td>
                                     <td class="text-center">881</td>
                                     <td class="text-center">854</td>
-                                    <td class="text-center trend-up"><i class="fa-solid fa-chart-line"></i> Tougher (+27)</td>
+                                    <td class="text-center trend-up">Tougher (+27)</td>
                                 </tr>
                                 <tr>
                                     <td>Mechanical Engineering</td>
                                     <td class="text-center">1268</td>
                                     <td class="text-center">1345</td>
-                                    <td class="text-center trend-down"><i class="fa-solid fa-chart-line-down"></i> Easier (-77)</td>
+                                    <td class="text-center trend-down">Easier (-77)</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -291,8 +296,8 @@
                                 <th>Category</th>
                                 <th>Quota</th>
                                 <th>Round</th>
-                                <th class="text-center">Opening Rank</th>
-                                <th class="text-center">Closing Rank</th>
+                                <th class="text-center">Opening</th>
+                                <th class="text-center">Closing</th>
                             </tr>
                         </thead>
                         <tbody id="explorer-table-body">
@@ -315,8 +320,23 @@
                         Every year, during the WBJEE counseling process, we run physical and digital helpdesks to guide students through form fill-up, document verification, and college/branch options.
                     </p>
                     <p>
-                        Our mission is to stand by students and ensure that quality education remains democratic, accessible, and transparent. If you have questions about JU life, hostels, curriculum, or scholarships, reach out to our representatives.
+                        Our mission is to stand by students and ensure that quality education remains democratic, accessible, and transparent.
                     </p>
+                    
+                    <!-- New Social Media Buttons Section -->
+                    <div class="social-connect-box">
+                        <h4>Connect with us on Social Media</h4>
+                        <div class="social-logos-container">
+                            <a href="https://www.instagram.com/sfiju_enggofficial/" target="_blank" class="social-logo-link logo-instagram" aria-label="SFI JU Engineering Instagram">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            
+                            <a href="https://www.facebook.com/SFI.JU.Engineering.Unit/" target="_blank" class="social-logo-link logo-facebook" aria-label="SFI JU Engineering Facebook">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                        </div>
+                    </div>      
+
                     <div class="helpdesk-contacts">
                         <div class="contact-item">
                             <i class="fa-brands fa-whatsapp contact-icon"></i>
@@ -359,8 +379,10 @@
                         </li>
                     </ul>
                     
-                    <!-- SFI Campaign Poster -->
-                    <img src="sfi_poster.jpeg" alt="SFI Poster: Study, Struggle, Change" class="sfi-about-poster" style="width:450px; height: auto;">
+                    <!-- SFI Campaign Poster - Added max-width for mobile responsive sizing -->
+                    <div class="poster-wrapper">
+                        <img src="sfi_poster.jpeg" alt="SFI Poster: Study, Struggle, Change" class="sfi-about-poster" style="width: 100%; max-width: 450px; height: auto; display: block; margin: 0 auto; border-radius: 8px;">
+                    </div>
                 </div>
             </div>
         </section>
@@ -375,7 +397,23 @@
         </div>
     </footer>
 
-    <!-- Custom Script Link -->
+    <!-- Script for Handling Mobile Navigation Toggle -->
+    <script>
+        document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
+            var nav = document.getElementById('main-nav');
+            nav.classList.toggle('mobile-open');
+        });
+        
+        // Close menu automatically on mobile when a link is clicked
+        document.querySelectorAll('.nav-link').forEach(function(link) {
+            link.addEventListener('click', function() {
+                var nav = document.getElementById('main-nav');
+                nav.classList.remove('mobile-open');
+            });
+        });
+    </script>
+
+    <!-- Custom Script Links -->
     <script src="data.js"></script>
     <script src="app.js"></script>
 </body>

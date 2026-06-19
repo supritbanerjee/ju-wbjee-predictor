@@ -218,6 +218,7 @@ body {
 .gradient-text {
     background: linear-gradient(135deg, var(--color-red-glow) 30%, var(--color-gold) 100%);
     -webkit-background-clip: text;
+    background-clip:text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -1077,3 +1078,40 @@ body {
         padding: 20px;
     }
 }
+
+
+
+/* Medium-Large Social Logo Styles */
+.social-logos-container {
+    display: flex;
+    gap: 25px; /* Spacing between the two icons */
+    justify-content: center; /* Centers them in the box */
+    padding: 15px 0;
+}
+
+.social-logo-link {
+    font-size: 3.5rem; /* Makes the logos medium-large (approx 56px) */
+    text-decoration: none;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    display: inline-block;
+}
+
+/* Color definitions for brand accuracy */
+.logo-instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.logo-facebook {
+    color: #1877F2;
+}
+
+/* Interactive touch/hover effect for mobile and web */
+.social-logo-link:hover,
+.social-logo-link:active {
+    transform: scale(1.15); /* Slightly pops out when clicked/tapped */
+    filter: brightness(1.2);
+}
+
