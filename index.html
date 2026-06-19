@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Predict your engineering branch at Jadavpur University (JU) Faculty of Engineering and Technology (FET) based on WBJEE and JEE Main historical cutoffs (2022-2025). Provided by SFI Jadavpur University Engineering Unit.">
+    <meta name="keywords" content="Jadavpur University, JU, FET, WBJEE 2026, Branch Predictor, Cutoff, Engineering Admission, SFI JU, West Bengal, CSE, IT, EE, ME">
+    <meta name="author" content="SFI Jadavpur University Engineering Unit">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sfi-ju.org/predictor">
+    <meta property="og:title" content="Jadavpur University FET Branch Predictor 2026 | SFI JU">
+    <meta property="og:description" content="Predict your engineering branch at Jadavpur University (JU) Faculty of Engineering and Technology (FET) based on WBJEE and JEE Main historical cutoffs (2022-2025). Provided by SFI Jadavpur University Engineering Unit.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <title>Jadavpur University FET Branch Predictor 2026 | SFI JU Engineering Unit</title>
+    
+    <!-- Custom CSS Link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Gradient Grids -->
+    <div class="bg-glow bg-glow-primary"></div>
+    <div class="bg-glow bg-glow-secondary"></div>
+
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo-area">
+                <!-- High Clarity Logo Image -->
+                <img src="logo.jpeg" alt="SFI Jadavpur University Engineering Unit Logo" class="sfi-logo-img">
+                <div class="logo-text">
+                    <span class="logo-title">SFI JU</span>
+                    <span class="logo-subtitle">Engineering Unit</span>
+                </div>
+            </div>
+            
+            <nav class="nav">
+                <a href="#predictor-section" class="nav-link active"><i class="fa-solid fa-wand-magic-sparkles"></i> Predictor</a>
+                <a href="#explorer-section" class="nav-link"><i class="fa-solid fa-magnifying-glass-chart"></i> Cutoff Explorer</a>
+                <a href="#about-section" class="nav-link"><i class="fa-solid fa-circle-info"></i> Helpdesk & About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-badge">
+                <span class="pulse-icon"></span>
+                <span>WBJEE 2026 Admission Guide</span>
+            </div>
+            <h1 class="hero-title">Jadavpur University FET <br><span class="gradient-text">Branch Predictor 2026</span></h1>
+            <p class="hero-description">
+                Calculate your admission probability at the Faculty of Engineering & Technology (FET), Jadavpur University. 
+                Our predictor analyzes official historical round-wise cutoff data from 2022 to 2025.
+            </p>
+            
+            <!-- Quick Stats Row -->
+            <div class="stats-row">
+                <div class="stat-card">
+                    <span class="stat-number">4 Years</span>
+                    <span class="stat-label">Verified Data (22-25)</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">17+</span>
+                    <span class="stat-label">Engineering Branches</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">420+</span>
+                    <span class="stat-label">Cutoff Ranks Logged</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Predictor Section -->
+        <section id="predictor-section" class="predictor-section scroll-offset">
+            <div class="glass-card main-predictor-card">
+                <div class="card-header">
+                    <h2 class="section-title"><i class="fa-solid fa-sliders"></i> Enter Your Rank & Category</h2>
+                    <p class="section-subtitle">Select your entry channel, enter your rank, and find where you fit in.</p>
+                </div>
+                
+                <!-- Channel Selector Tabs -->
+                <div class="tabs-container">
+                    <button class="tab-btn active" id="tab-wbjee" onclick="switchChannel('wbjee')">
+                        <i class="fa-solid fa-graduation-cap"></i> WBJEE (B.E/B.Tech)
+                    </button>
+                    <button class="tab-btn" id="tab-jeemain" onclick="switchChannel('jeemain')">
+                        <i class="fa-solid fa-atom"></i> JEE Main (All India)
+                    </button>
+                    <button class="tab-btn" id="tab-jelet" onclick="switchChannel('jelet')">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i> JELET (Lateral Entry)
+                    </button>
+                    <button class="tab-btn" id="tab-bpharm" onclick="switchChannel('bpharm')">
+                        <i class="fa-solid fa-prescription-bottle-medical"></i> B.Pharm
+                    </button>
+                </div>
+
+                <!-- Input Form -->
+                <form id="predictor-form" onsubmit="handlePrediction(event)">
+                    <div class="form-grid">
+                        <!-- Rank Input -->
+                        <div class="form-group">
+                            <label for="user-rank" class="form-label">
+                                <i class="fa-solid fa-hashtag"></i> Enter Rank (GMR)
+                            </label>
+                            <input type="number" id="user-rank" class="form-input" min="1" placeholder="e.g. 250" required>
+                            <span class="input-hint" id="rank-hint">Enter your WBJEE General Merit Rank (GMR).</span>
+                        </div>
+
+                        <!-- Category Dropdown -->
+                        <div class="form-group">
+                            <label for="user-category" class="form-label">
+                                <i class="fa-solid fa-id-card"></i> Select Category
+                            </label>
+                            <select id="user-category" class="form-input" required>
+                                <option value="" disabled selected>Select category...</option>
+                                <!-- Categories dynamically loaded based on channel -->
+                            </select>
+                            <span class="input-hint">Predictions will adjust based on reservation criteria.</span>
+                        </div>
+
+                        <!-- Quota Selection (Contextual) -->
+                        <div class="form-group" id="quota-group">
+                            <label for="user-quota" class="form-label">
+                                <i class="fa-solid fa-map-location-dot"></i> State Quota
+                            </label>
+                            <select id="user-quota" class="form-input">
+                                <option value="HS" selected>Home State (West Bengal)</option>
+                                <option value="AI">All India</option>
+                            </select>
+                            <span class="input-hint">JU FET seats are heavily reserved for Home State students.</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="predict-btn" class="btn btn-primary btn-block">
+                        <span>Predict My Branches</span>
+                        <i class="fa-solid fa-circle-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Prediction Results Display (Initially hidden or shows stats) -->
+            <div id="results-container" class="results-container hidden">
+                <div class="results-header">
+                    <h3 class="results-title">
+                        Prediction Results for Rank <span id="res-rank" class="res-highlight">250</span> in <span id="res-cat" class="res-highlight">General</span> Category
+                    </h3>
+                    <p class="results-desc">Based on previous 4 years' counseling data. Click any branch to see the cutoff charts.</p>
+                </div>
+
+                <div class="results-summary-cards">
+                    <div class="summary-badge probability-safe">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <div>
+                            <span class="badge-num" id="count-safe">0</span>
+                            <span class="badge-lbl">Highly Likely</span>
+                        </div>
+                    </div>
+                    <div class="summary-badge probability-moderate">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <div>
+                            <span class="badge-num" id="count-moderate">0</span>
+                            <span class="badge-lbl">Borderline / Possible</span>
+                        </div>
+                    </div>
+                    <div class="summary-badge probability-low">
+                        <i class="fa-solid fa-circle-xmark"></i>
+                        <div>
+                            <span class="badge-num" id="count-low">0</span>
+                            <span class="badge-lbl">Low Chance</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main results list -->
+                <div class="results-list" id="results-list-target">
+                    <!-- Cards injected via JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Default Welcome Dashboard when no prediction yet -->
+            <div id="welcome-dashboard" class="welcome-dashboard">
+                <div class="glass-card dashboard-card">
+                    <h3><i class="fa-solid fa-chart-line"></i> Jadavpur University Closing Cutoffs (2025 vs 2024)</h3>
+                    <p class="dash-subtitle">Home State - General Category Round 2 closing ranks for top engineering branches:</p>
+                    <div class="table-responsive">
+                        <table class="dash-table">
+                            <thead>
+                                <tr>
+                                    <th>Branch / Course</th>
+                                    <th class="text-center">2024 closing</th>
+                                    <th class="text-center">2025 closing</th>
+                                    <th class="text-center">Trend</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Computer Science & Engineering</td>
+                                    <td class="text-center">309</td>
+                                    <td class="text-center">238</td>
+                                    <td class="text-center trend-up"><i class="fa-solid fa-chart-line"></i> Tougher (+71)</td>
+                                </tr>
+                                <tr>
+                                    <td>Information Technology</td>
+                                    <td class="text-center">445</td>
+                                    <td class="text-center">469</td>
+                                    <td class="text-center trend-down"><i class="fa-solid fa-chart-line-down"></i> Easier (-24)</td>
+                                </tr>
+                                <tr>
+                                    <td>Electronics & Telecommunication Engg.</td>
+                                    <td class="text-center">490</td>
+                                    <td class="text-center">445</td>
+                                    <td class="text-center trend-up"><i class="fa-solid fa-chart-line"></i> Tougher (+45)</td>
+                                </tr>
+                                <tr>
+                                    <td>Electrical Engineering</td>
+                                    <td class="text-center">881</td>
+                                    <td class="text-center">854</td>
+                                    <td class="text-center trend-up"><i class="fa-solid fa-chart-line"></i> Tougher (+27)</td>
+                                </tr>
+                                <tr>
+                                    <td>Mechanical Engineering</td>
+                                    <td class="text-center">1268</td>
+                                    <td class="text-center">1345</td>
+                                    <td class="text-center trend-down"><i class="fa-solid fa-chart-line-down"></i> Easier (-77)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cutoff Explorer Section -->
+        <section id="explorer-section" class="explorer-section scroll-offset">
+            <div class="glass-card">
+                <div class="card-header">
+                    <h2 class="section-title"><i class="fa-solid fa-magnifying-glass-chart"></i> Historical Cutoff Explorer</h2>
+                    <p class="section-subtitle">Browse raw opening and closing ranks for any branch, category, or year.</p>
+                </div>
+
+                <div class="explorer-filters">
+                    <div class="filter-group">
+                        <label for="exp-channel">Entry Channel</label>
+                        <select id="exp-channel" class="form-input" onchange="updateExplorerFilters()">
+                            <option value="wbjee">WBJEE (B.E/B.Tech)</option>
+                            <option value="jeemain">JEE Main (All India)</option>
+                            <option value="jelet">JELET (Lateral Entry)</option>
+                            <option value="bpharm">B.Pharm</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="exp-year">Year</label>
+                        <select id="exp-year" class="form-input" onchange="runExplorerSearch()">
+                            <option value="all">All Years (2022-2025)</option>
+                            <option value="2025">2025</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="exp-category">Category</label>
+                        <select id="exp-category" class="form-input" onchange="runExplorerSearch()">
+                            <option value="all">All Categories</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="exp-branch">Branch</label>
+                        <select id="exp-branch" class="form-input" onchange="runExplorerSearch()">
+                            <option value="all">All Branches</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="table-responsive exp-table-container">
+                    <table class="exp-table" id="explorer-table">
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Branch</th>
+                                <th>Category</th>
+                                <th>Quota</th>
+                                <th>Round</th>
+                                <th class="text-center">Opening Rank</th>
+                                <th class="text-center">Closing Rank</th>
+                            </tr>
+                        </thead>
+                        <tbody id="explorer-table-body">
+                            <!-- Injected by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Helpdesk & Contact Section -->
+        <section id="about-section" class="about-section scroll-offset">
+            <div class="grid-2col">
+                <!-- SFI JU Helpdesk Info -->
+                <div class="glass-card about-card">
+                    <div class="card-badge"><i class="fa-solid fa-circle-info"></i> SFI Initiative</div>
+                    <h3>SFI Jadavpur University Engineering Unit</h3>
+                    <p>
+                        The Students' Federation of India (SFI) Engineering Unit at Jadavpur University is dedicated to assisting students through their academic journey. 
+                        Every year, during the WBJEE counseling process, we run physical and digital helpdesks to guide students through form fill-up, document verification, and college/branch options.
+                    </p>
+                    <p>
+                        Our mission is to stand by students and ensure that quality education remains democratic, accessible, and transparent. If you have questions about JU life, hostels, curriculum, or scholarships, reach out to our representatives.
+                    </p>
+                    <div class="helpdesk-contacts">
+                        <div class="contact-item">
+                            <i class="fa-brands fa-whatsapp contact-icon"></i>
+                            <div>
+                                <span class="contact-lbl">Whatsapp Helpdesk Helpline</span>
+                                <span class="contact-val">+91 7548976071 / +91 8900618747</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-envelope contact-icon"></i>
+                            <div>
+                                <span class="contact-lbl">Email Support</span>
+                                <span class="contact-val">sfi.ju.engg@gmail.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- JU Campus Map/Stats -->
+                <div class="glass-card campus-info-card">
+                    <h3>Jadavpur University FET Facts</h3>
+                    <ul class="campus-facts">
+                        <li>
+                            <span class="fact-icon"><i class="fa-solid fa-award"></i></span>
+                            <div>
+                                <strong>High Placement Rates:</strong> Top-tier multinational core engineering and IT firms visit the JU campus annually, boasting packages matching premier IITs.
+                            </div>
+                        </li>
+                        <li>
+                            <span class="fact-icon"><i class="fa-solid fa-indian-rupee-sign"></i></span>
+                            <div>
+                                <strong>Nominal Fee Structure:</strong> At approx ₹2,400 per year (and ₹30,000 per year for IT), Jadavpur University offers the highest return on investment (ROI) in India.
+                            </div>
+                        </li>
+                        <li>
+                            <span class="fact-icon"><i class="fa-solid fa-building-columns"></i></span>
+                            <div>
+                                <strong>Research Culture:</strong> FET has top-of-the-line research labs, funding, and international paper publications led by highly qualified faculty.
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <!-- SFI Campaign Poster -->
+                    <img src="sfi_poster.jpeg" alt="SFI Poster: Study, Struggle, Change" class="sfi-about-poster" style="width:450px; height: auto;">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <p>&copy; 2026 SFI Jadavpur University Engineering Unit. Built for assisting aspiring candidates.</p>
+            <p class="footer-disclaimer">
+                Disclaimer: This predictor tool is based on historical counseling data from 2022 to 2025. Actual cutoffs for WBJEE 2026 may vary depending on seat capacity, examination difficulty, and applicant choice preferences.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Custom Script Link -->
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+
+=========================================
+FILE: JU_Cutoff_2022.xlsx (Year: 2022)
+Sheets: ['Overview', 'General Category', 'OBC Category', 'SC Category', 'ST Category', 'JEE-Main 2022', 'JELET 2022', 'B.Pharm 2022']
+=========================================
+
+Sheet 'Overview' - Columns: ['JADAVPUR UNIVERSITY – CUTOFF 2022  |  Based on WBJEE 2022 General Merit Ranks', 'Unnamed: 1']
+Total Rows: 6
+Sample Data:
+JADAVPUR UNIVERSITY – CUTOFF 2022  |  Based on WBJEE 2022 General Merit Ranks                   Unnamed: 1
+                                                                        Field                      Details
+                                                                   University Jadavpur University, Kolkata
+                                                                    Exam Year                   WBJEE 2022
+
+Sheet 'General Category' - Columns: ['JADAVPUR UNIVERSITY  –  WBJEE 2022  |  General Category  |  Home State (HS)  |  Opening & Closing Rank', 'Unnamed: 1', 'Unnamed: 2']
+Total Rows: 15
+Sample Data:
+JADAVPUR UNIVERSITY  –  WBJEE 2022  |  General Category  |  Home State (HS)  |  Opening & Closing Rank   Unnamed: 1   Unnamed: 2
+                                                                                       Branch / Course Opening Rank Closing Rank
+                                                                        Computer Science & Engineering           66           81
+                                                                                Information Technology          210          261
+
+Sheet 'OBC Category' - Columns: ['JADAVPUR UNIVERSITY  –  WBJEE 2022  |  OBC Category  |  Home State (HS)  |  Opening & Closing Rank', 'Unnamed: 1', 'Unnamed: 2']
+Total Rows: 15
+Sample Data:
+JADAVPUR UNIVERSITY  –  WBJEE 2022  |  OBC Category  |  Home State (HS)  |  Opening & Closing Rank   Unnamed: 1   Unnamed: 2
+                                                                                   Branch / Course Opening Rank Closing Rank
+                                                                    Computer Science & Engineering          476          519
+                                                                            Information Technology         1065         1132
+
+Sheet 'SC Category' - Columns: ['JADAVPUR UNIVERSITY  –  WBJEE 2022  |  SC Category  |  Home State (HS)  |  Opening & Closing Rank', 'Unnamed: 1', 'Unnamed: 2']
+Total Rows: 14
+Sample Data:
+JADAVPUR UNIVERSITY  –  WBJEE 2022  |  SC Category  |  Home State (HS)  |  Opening & Closing Rank   Unnamed: 1   Unnamed: 2
+                                                                                  Branch / Course Opening Rank Closing Rank
+                                                                   Computer Science & Engineering          669          859
+                                                                           Information Technology         1540         1884
+
+Sheet 'ST Category' - Columns: ['JADAVPUR UNIVERSITY  –  WBJEE 2022  |  ST Category  |  Home State (HS)  |  Opening & Closing Rank', 'Unnamed: 1', 'Unnamed: 2']
+Total Rows: 14
+Sample Data:
+JADAVPUR UNIVERSITY  –  WBJEE 2022  |  ST Category  |  Home State (HS)  |  Opening & Closing Rank   Unnamed: 1   Unnamed: 2
+                                                                                  Branch / Course Opening Rank Closing Rank
+                                                                   Computer Science & Engineering         2963         4600
+                                                                           Information Technology         5704         6758
+
+Sheet 'JEE-Main 2022' - Columns: ['JADAVPUR UNIVERSITY  –  JEE-MAIN 2022  |  General Category  |  All India  |  Opening & Closing Rank', 'Unnamed: 1', 'Unnamed: 2']
+Total Rows: 15
+Sample Data:
+JADAVPUR UNIVERSITY  –  JEE-MAIN 2022  |  General Category  |  All India  |  Opening & Closing Rank   Unnamed: 1   Unnamed: 2
+                                                                                    Branch / Course Opening Rank Closing Rank
+                                                                     Computer Science & Engineering            5           10
+                                                               Electronics & Tele-Comm. Engineering           70           93
+
+Sheet 'JELET 2022' - Columns: ['JADAVPUR UNIVERSITY  –  JELET 2022  |  Lateral Entry  |  General Category  |  Home State  |  Closing Rank', 'Unnamed: 1', 'Unnamed: 2']
+Total Rows: 14
+Sample Data:
+JADAVPUR UNIVERSITY  –  JELET 2022  |  Lateral Entry  |  General Category  |  Home State  |  Closing Rank   Unnamed: 1   Unnamed: 2
+                                                                                          Branch / Course Opening Rank Closing Rank
+                                                                  BE {Lateral} – Computer Science & Engg.           15           15
+                                                                  BE {Lateral} – Electronics & Tele-Comm.           65           65
+
+Sheet 'B.Pharm 2022' - Columns: ['JADAVPUR UNIVERSITY  –  B.PHARM WBJEE 2022  |  All Categories  |  Home State  |  Closing Rank', 'Unnamed: 1', 'Unnamed: 2']
+Total Rows: 5
+Sample Data:
+JADAVPUR UNIVERSITY  –  B.PHARM WBJEE 2022  |  All Categories  |  Home State  |  Closing Rank   Unnamed: 1   Unnamed: 2
+                                                                                     Category Opening Rank Closing Rank
+                                                                                      General         2535         3622
+                                                                                          OBC         4301         5890
+
+=========================================
+FILE: JU_Cutoff_2023.xlsx (Year: 2023)
+Sheets: ['Overview', 'WBJEE 2023 – Category-wise', 'B.Pharm 2023', 'JEE-Main 2023', 'JELET 2023', 'WB-JECA 2023 (MCA)']
+=========================================
+
+Sheet 'Overview' - Columns: ['JADAVPUR UNIVERSITY – CUTOFF 2023  |  Based on WBJEE 2023 General Merit Ranks', 'Unnamed: 1']
+Total Rows: 6
+Sample Data:
+JADAVPUR UNIVERSITY – CUTOFF 2023  |  Based on WBJEE 2023 General Merit Ranks                   Unnamed: 1
+                                                                        Field                      Details
+                                                                   University Jadavpur University, Kolkata
+                                                                    Exam Year                   WBJEE 2023
+
+Sheet 'WBJEE 2023 – Category-wise' - Columns: ['JADAVPUR UNIVERSITY  –  WBJEE 2023  |  BE Programs  |  Home State  |  Closing Rank by Category', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6']
+Total Rows: 17
+Sample Data:
+JADAVPUR UNIVERSITY  –  WBJEE 2023  |  BE Programs  |  Home State  |  Closing Rank by Category Unnamed: 1 Unnamed: 2 Unnamed: 3 Unnamed: 4 Unnamed: 5 Unnamed: 6
+                                                                               Branch / Course    General         SC         ST      OBC-A      OBC-B        TFW
+                                                                Computer Science & Engineering        266       3261          –          –          –          –
+                                                                        Information Technology        607          –          –          –       1396       1281
+
+Sheet 'B.Pharm 2023' - Columns: ['JADAVPUR UNIVERSITY  –  B.PHARM WBJEE 2023  |  Pharmaceutical Technology  |  All Categories', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3']
+Total Rows: 8
+Sample Data:
+JADAVPUR UNIVERSITY  –  B.PHARM WBJEE 2023  |  Pharmaceutical Technology  |  All Categories   Unnamed: 1   Unnamed: 2 Unnamed: 3
+                                                                                   Category Opening Rank Closing Rank      Notes
+                                                                                    General         2083         6138 Home State
+                                                                                         SC         3768        15667 Home State
+
+Sheet 'JEE-Main 2023' - Columns: ['JADAVPUR UNIVERSITY  –  JEE-MAIN 2023  |  BE Programs  |  General Category  |  AI Quota', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3']
+Total Rows: 16
+Sample Data:
+JADAVPUR UNIVERSITY  –  JEE-MAIN 2023  |  BE Programs  |  General Category  |  AI Quota   Unnamed: 1   Unnamed: 2     Unnamed: 3
+                                                                        Branch / Course Opening Rank Closing Rank          Quota
+                                                         Computer Science & Engineering           52            – All India (AI)
+                                                                 Information Technology          271          282 All India (AI)
+
+Sheet 'JELET 2023' - Columns: ['JADAVPUR UNIVERSITY  –  JELET 2023  |  Lateral Entry  |  Home State (HS)  |  Closing Rank', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3']
+Total Rows: 14
+Sample Data:
+JADAVPUR UNIVERSITY  –  JELET 2023  |  Lateral Entry  |  Home State (HS)  |  Closing Rank Unnamed: 1 Unnamed: 2 Unnamed: 3
+                                                                          Branch / Course    General         SC         ST
+                                                  BE {Lateral} – Computer Science & Engg.          5         45        116
+                                                  BE {Lateral} – Electronics & Tele-Comm.         11         43        318
+
+Sheet 'WB-JECA 2023 (MCA)' - Columns: ['JADAVPUR UNIVERSITY  –  WB-JECA 2023  |  MCA Program  |  Closing Rank', 'Unnamed: 1', 'Unnamed: 2']
+Total Rows: 2
+Sample Data:
+JADAVPUR UNIVERSITY  –  WB-JECA 2023  |  MCA Program  |  Closing Rank        Unnamed: 1     Unnamed: 2
+                                                             Category Closing Rank 2023          Notes
+                                                              General                31 All India (AI)
+
+=========================================
+FILE: JU_Cutoff_2024.xlsx (Year: 2024)
+Sheets: ['Overview', 'WBJEE R2 – AI (General)', 'WBJEE R1 – HS (General)', 'Category-wise (HS)', 'JELET 2024', 'WB-JECA 2024 (MCA)', 'JEE-Main 2024']
+=========================================
+
+Sheet 'Overview' - Columns: ['JADAVPUR UNIVERSITY – CUTOFF 2024  |  Based on WBJEE 2024 General Merit Ranks', 'Unnamed: 1']
+Total Rows: 8
+Sample Data:
+JADAVPUR UNIVERSITY – CUTOFF 2024  |  Based on WBJEE 2024 General Merit Ranks                   Unnamed: 1
+                                                                        Field                      Details
+                                                                   University Jadavpur University, Kolkata
+                                                                    Exam Year                   WBJEE 2024
+
+Sheet 'WBJEE R2 – AI (General)' - Columns: ['JADAVPUR UNIVERSITY  –  WBJEE 2024  |  Round 2  |  All India (AI)  |  General Category  |  Closing Rank', 'Unnamed: 1']
+Total Rows: 18
+Sample Data:
+JADAVPUR UNIVERSITY  –  WBJEE 2024  |  Round 2  |  All India (AI)  |  General Category  |  Closing Rank        Unnamed: 1
+                                                                                        Branch / Course Closing Rank (CR)
+                                                                         Computer Science & Engineering                57
+                                                                                 Information Technology               176
+
+Sheet 'WBJEE R1 – HS (General)' - Columns: ['JADAVPUR UNIVERSITY  –  WBJEE 2024  |  Round 1  |  Home State (HS)  |  General Category  |  Opening & Closing Rank', 'Unnamed: 1', 'Unnamed: 2']
+Total Rows: 17
+Sample Data:
+JADAVPUR UNIVERSITY  –  WBJEE 2024  |  Round 1  |  Home State (HS)  |  General Category  |  Opening & Closing Rank        Unnamed: 1        Unnamed: 2
+                                                                                                   Branch / Course Opening Rank (OR) Closing Rank (CR)
+                                                                                    Computer Science & Engineering                89               309
+                                                                                            Information Technology               126               445
+
+Sheet 'Category-wise (HS)' - Columns: ['JADAVPUR UNIVERSITY  –  WBJEE 2024  |  Category-wise  |  Home State (HS)  |  Closing Ranks', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7']
+Total Rows: 17
+Sample Data:
+JADAVPUR UNIVERSITY  –  WBJEE 2024  |  Category-wise  |  Home State (HS)  |  Closing Ranks Unnamed: 1 Unnamed: 2 Unnamed: 3 Unnamed: 4 Unnamed: 5 Unnamed: 6 Unnamed: 7
+                                                                           Branch / Course    General      OBC-A      OBC-B         SC         ST General PH        TFW
+                                                            Computer Science & Engineering     22–309   450–2027    223–397   164–1471 4612–10186  2481–2613          –
+                                                                    Information Technology    126–445          –          –   865–3219 9753–17779          –          –
+
+Sheet 'JELET 2024' - Columns: ['JADAVPUR UNIVERSITY  –  JELET 2024  |  Lateral Entry Cutoff  |  Home State (HS)  |  Closing Rank', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3']
+Total Rows: 16
+Sample Data:
+JADAVPUR UNIVERSITY  –  JELET 2024  |  Lateral Entry Cutoff  |  Home State (HS)  |  Closing Rank Unnamed: 1   Unnamed: 2 Unnamed: 3
+                                                                                Program / Course   Category Closing Rank      Quota
+                                                         BE {Lateral} – Computer Science & Engg.    General           49         HS
+                                                           BE {Lateral} – Information Technology    General          582         HS
+
+Sheet 'WB-JECA 2024 (MCA)' - Columns: ['JADAVPUR UNIVERSITY  –  WB-JECA 2024  |  MCA Program  |  Closing Rank', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3']
+Total Rows: 7
+Sample Data:
+JADAVPUR UNIVERSITY  –  WB-JECA 2024  |  MCA Program  |  Closing Rank      Unnamed: 1        Unnamed: 2        Unnamed: 3
+                                                             Category           Quota Closing Rank 2024 Closing Rank 2023
+                                                              General  All India (AI)                29                 –
+                                                                OBC-B Home State (HS)                86                 –
+
+Sheet 'JEE-Main 2024' - Columns: ['JADAVPUR UNIVERSITY  –  JEE-MAIN 2024  |  BE Programs  |  Round 3 Closing Rank', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5']
+Total Rows: 17
+Sample Data:
+JADAVPUR UNIVERSITY  –  JEE-MAIN 2024  |  BE Programs  |  Round 3 Closing Rank Unnamed: 1   Unnamed: 2   Unnamed: 3   Unnamed: 4   Unnamed: 5
+                                                               Branch / Course   Category AI – Opening AI – Closing HS – Opening HS – Closing
+                                                Computer Science & Engineering    General           19           57           89          309
+                                                        Information Technology    General           94          197          126          445
+
+=========================================
+FILE: Jadavpur_University_Cutoff_2025.xlsx (Year: 2025)
+Sheets: ['Overview', 'WBJEE R1 – General (HS)', 'WBJEE R1 – AI (General)', 'WBJEE R2 – AI (General)', 'Category-wise (HS)', 'B.Pharm Cutoff', 'JEE-Main 2024', 'JELET 2025', 'WB-JECA 2025 (MCA)', 'Historical Trends']
+=========================================
+
+Sheet 'Overview' - Columns: ['JADAVPUR UNIVERSITY – CUTOFF 2025  |  All Ranks via WBJEE 2025', 'Unnamed: 1']
+Total Rows: 22
+Sample Data:
+JADAVPUR UNIVERSITY – CUTOFF 2025  |  All Ranks via WBJEE 2025                                               Unnamed: 1
+                                                         Field                                                  Details
+                                                    University                             Jadavpur University, Kolkata
+                                                       Address 188, Raja S.C. Mallick Rd, Kolkata, West Bengal – 700032
+
+Sheet 'WBJEE R1 – General (HS)' - Columns: ['JADAVPUR UNIVERSITY  –  WBJEE R1 – GENERAL (HS)  |  WBJEE 2025', 'Unnamed: 1', 'Unnamed: 2']
+Total Rows: 18
+Sample Data:
+JADAVPUR UNIVERSITY  –  WBJEE R1 – GENERAL (HS)  |  WBJEE 2025        Unnamed: 1        Unnamed: 2
+                                               Branch / Course Opening Rank (OR) Closing Rank (CR)
+                                Computer Science & Engineering                70               202
+                                        Information Technology               226               414
+
+Sheet 'WBJEE R1 – AI (General)' - Columns: ['JADAVPUR UNIVERSITY  –  WBJEE R1 – AI (GENERAL)  |  WBJEE 2025', 'Unnamed: 1', 'Unnamed: 2']
+Total Rows: 18
+Sample Data:
+JADAVPUR UNIVERSITY  –  WBJEE R1 – AI (GENERAL)  |  WBJEE 2025        Unnamed: 1        Unnamed: 2
+                                               Branch / Course Opening Rank (OR) Closing Rank (CR)
+                                Computer Science & Engineering                29                67
+                                        Information Technology               215               225
+
+Sheet 'WBJEE R2 – AI (General)' - Columns: ['JADAVPUR UNIVERSITY  –  WBJEE R2 – AI (GENERAL)  |  WBJEE 2025', 'Unnamed: 1', 'Unnamed: 2']
+Total Rows: 18
+Sample Data:
+JADAVPUR UNIVERSITY  –  WBJEE R2 – AI (GENERAL)  |  WBJEE 2025        Unnamed: 1        Unnamed: 2
+                                               Branch / Course Opening Rank (OR) Closing Rank (CR)
+                                Computer Science & Engineering                70                78
+                                        Information Technology               254               281
+
+Sheet 'Category-wise (HS)' - Columns: ['JADAVPUR UNIVERSITY  –  CATEGORY-WISE CUTOFF (HOME STATE)  |  WBJEE 2025  |  Round 2 Closing Rank', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7']
+Total Rows: 17
+Sample Data:
+JADAVPUR UNIVERSITY  –  CATEGORY-WISE CUTOFF (HOME STATE)  |  WBJEE 2025  |  Round 2 Closing Rank Unnamed: 1             Unnamed: 2        Unnamed: 3 Unnamed: 4  Unnamed: 5        Unnamed: 6 Unnamed: 7
+                                                                                  Branch / Course    General OBC-A\n(More Backward) OBC-B\n(Backward)         SC          ST General PH\n(PwD)        TFW
+                                                              Computer Science & Engineering (BE)    202–238                      –                 –          –           –                 –          –
+                                                                      Information Technology (BE)    414–469              1415–1754          835–1306  2332–2912 13353–13591              8558        484
+
+Sheet 'B.Pharm Cutoff' - Columns: ['JADAVPUR UNIVERSITY  –  B.PHARM / PHARMACEUTICAL TECHNOLOGY CUTOFF  |  WBJEE 2025', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4']
+Total Rows: 9
+Sample Data:
+JADAVPUR UNIVERSITY  –  B.PHARM / PHARMACEUTICAL TECHNOLOGY CUTOFF  |  WBJEE 2025      Unnamed: 1           Unnamed: 2           Unnamed: 3 Unnamed: 4
+                                                                         Category           Quota Round 1 Closing Rank Round 2 Closing Rank    Remarks
+                                                                          General  All India (AI)                 2462                 2486        NaN
+                                                                          General Home State (HS)                 4641                 5270        NaN
+
+Sheet 'JEE-Main 2024' - Columns: ['JADAVPUR UNIVERSITY  –  JEE-MAIN 2024 CUTOFF  |  BE Programs  |  Round 3 Closing Rank', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4']
+Total Rows: 23
+Sample Data:
+JADAVPUR UNIVERSITY  –  JEE-MAIN 2024 CUTOFF  |  BE Programs  |  Round 3 Closing Rank Unnamed: 1   Unnamed: 2   Unnamed: 3   Unnamed: 4
+                                                                      Branch / Course   Category AI – Opening AI – Closing HS – Closing
+                                                       Computer Science & Engineering    General           19           57       89–309
+                                                       Computer Science & Engineering      OBC-A            –            –     450–2027
+
+Sheet 'JELET 2025' - Columns: ['JADAVPUR UNIVERSITY  –  JELET 2025 CUTOFF  |  Lateral Entry  |  Home State Quota (HS)', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4']
+Total Rows: 23
+Sample Data:
+JADAVPUR UNIVERSITY  –  JELET 2025 CUTOFF  |  Lateral Entry  |  Home State Quota (HS) Unnamed: 1          Unnamed: 2          Unnamed: 3 Unnamed: 4
+                                                                     Program / Course   Category Closing Rank (2025) Closing Rank (2024)      Trend
+                                              BE {Lateral} – Computer Science & Engg.    General                   9                   – ↓ Improved
+                                              BE {Lateral} – Computer Science & Engg.      OBC-A                  21                   –        NaN
+
+Sheet 'WB-JECA 2025 (MCA)' - Columns: ['JADAVPUR UNIVERSITY  –  WB-JECA 2025 CUTOFF  |  MCA Program', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4']
+Total Rows: 7
+Sample Data:
+JADAVPUR UNIVERSITY  –  WB-JECA 2025 CUTOFF  |  MCA Program      Unnamed: 1        Unnamed: 2        Unnamed: 3        Unnamed: 4
+                                                   Category           Quota Closing Rank 2025 Closing Rank 2024 Closing Rank 2023
+                                                    General  All India (AI)                30                29                31
+                                                      OBC-B Home State (HS)                53                86                48
+
+Sheet 'Historical Trends' - Columns: ['JADAVPUR UNIVERSITY  –  WBJEE CLOSING RANK TRENDS 2021–2025  |  General Category  |  Round 2 / Last Round', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7']
+Total Rows: 29
+Sample Data:
+JADAVPUR UNIVERSITY  –  WBJEE CLOSING RANK TRENDS 2021–2025  |  General Category  |  Round 2 / Last Round Unnamed: 1 Unnamed: 2  Unnamed: 3  Unnamed: 4  Unnamed: 5        Unnamed: 6         Unnamed: 7
+                                                A. Course-wise Closing Rank (AI Quota – General Category)        NaN        NaN         NaN         NaN         NaN               NaN                NaN
+                                                                                          Branch / Course       2021       2022      2023.0      2024.0      2025.0 Change\n2024→2025              Trend
+                                                                           Computer Science & Engineering          7         10        52.0        57.0        78.0               +21 ↑ More Competitive
