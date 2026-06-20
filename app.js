@@ -48,6 +48,15 @@ function setupScrollSpy() {
     });
 }
 
+// Helper to normalize branch names cleanly and eliminate duplicates
+function normalizeBranchName(branchName) {
+    if (!branchName) return '';
+    if (branchName.includes("Construction Engineering")) {
+        return "Construction Engineering";
+    }
+    return branchName;
+}
+
 // Switch Admission Channels (tabs)
 function switchChannel(channel) {
     currentChannel = channel;
@@ -56,27 +65,24 @@ function switchChannel(channel) {
     document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.classList.remove('active');
     });
-    document.getElementById(`tab-${channel}`).classList.add('active');
+    const activeTab = document.getElementById(`tab-${channel}`);
+    if (activeTab) activeTab.classList.add('active');
     
-    // Update Quota display (Hide/Show state selection)
+    // Update Quota display (Always hide for WBJEE / B.Pharm)
     const quotaGroup = document.getElementById('quota-group');
-    if (channel === 'jeemain') {
-        quotaGroup.classList.remove('hidden-quota');
-    } else {
+    if (quotaGroup) {
         quotaGroup.classList.add('hidden-quota');
         document.getElementById('user-quota').value = 'HS';
     }
     
     // Update Rank input hint
     const rankHint = document.getElementById('rank-hint');
-    if (channel === 'wbjee') {
-        rankHint.textContent = "Enter your WBJEE General Merit Rank (GMR).";
-    } else if (channel === 'jeemain') {
-        rankHint.textContent = "Enter your JEE Main Common Rank List (CRL) rank.";
-    } else if (channel === 'jelet') {
-        rankHint.textContent = "Enter your JELET General Merit Rank (GMR).";
-    } else if (channel === 'bpharm') {
-        rankHint.textContent = "Enter your WBJEE Pharmacy Merit Rank (PMR).";
+    if (rankHint) {
+        if (channel === 'wbjee') {
+            rankHint.textContent = "Enter your WBJEE General Merit Rank (GMR).";
+        } else if (channel === 'bpharm') {
+            rankHint.textContent = "Enter your WBJEE Pharmacy Merit Rank (PMR).";
+        }
     }
     
     // Reset Form and Results
@@ -134,11 +140,9 @@ function handlePrediction(event) {
     
     const rankInput = document.getElementById('user-rank');
     const categorySelect = document.getElementById('user-category');
-    const quotaSelect = document.getElementById('user-quota');
     
     const userRank = parseInt(rankInput.value, 10);
     const selectedCategory = categorySelect.value;
-    const selectedQuota = quotaSelect.value;
     
     if (isNaN(userRank) || userRank <= 0) {
         alert("Please enter a valid positive rank.");
@@ -163,16 +167,11 @@ function handlePrediction(event) {
     const records = dataset[currentChannel] || [];
     const matchingCats = getMatchingCategories(selectedCategory);
     
-    // Group records by branch
+    // Group records by sanitized branch names
     const branchDataMap = {};
     records.forEach(rec => {
         if (matchingCats.includes(rec.category)) {
-            // For JEE Main, match the quota (HS/AI). For others, quota is usually HS
-            if (currentChannel === 'jeemain' && rec.quota !== selectedQuota) {
-                return;
-            }
-            
-            const branch = rec.branch;
+            const branch = normalizeBranchName(rec.branch);
             if (!branchDataMap[branch]) {
                 branchDataMap[branch] = [];
             }
@@ -187,33 +186,35 @@ function handlePrediction(event) {
     
     // Run prediction scoring for each branch
     for (const [branch, branchRecords] of Object.entries(branchDataMap)) {
-        // Group by year to find the best (highest closing rank) option per year
-        const yearData = {};
+        
+        // Group all rounds by year to ensure comprehensive calculations
+        const yearRoundData = {};
         branchRecords.forEach(rec => {
             const yr = rec.year;
-            if (!yearData[yr] || rec.cr > yearData[yr].cr) {
-                yearData[yr] = rec;
+            if (!yearRoundData[yr]) {
+                yearRoundData[yr] = [];
             }
+            yearRoundData[yr].push(rec);
         });
         
-        const years = Object.keys(yearData).map(Number).sort((a, b) => b - a); // descending
+        const years = Object.keys(yearRoundData).map(Number).sort((a, b) => b - a);
         if (years.length === 0) continue;
         
-        // Predict probability
+        // Predict probability based on checking across ALL structural entries
         let score = 0;
-        let validYearsCount = 0;
+        let validEntryCount = 0;
         
-        years.forEach(yr => {
-            const cr = yearData[yr].cr;
-            validYearsCount++;
+        branchRecords.forEach(rec => {
+            const cr = rec.cr;
+            validEntryCount++;
             if (userRank <= cr) {
-                score += 1.0; // fully safe that year
+                score += 1.0; // fully safe entry point
             } else if (userRank <= cr * 1.15) {
-                score += 0.4; // borderline chance that year
+                score += 0.4; // borderline chance entry point
             }
         });
         
-        const probability = score / validYearsCount;
+        const probability = validEntryCount > 0 ? (score / validEntryCount) : 0;
         let safetyLabel = '';
         let safetyClass = '';
         
@@ -231,13 +232,25 @@ function handlePrediction(event) {
             countLow++;
         }
         
+        // Determine latest entries for display tags
+        const latestYear = Math.max(...years);
+        const latestRecords = yearRoundData[latestYear] || [];
+        // Sort descending to make sure the final cutoff round is picked as reference indicator
+        latestRecords.sort((a, b) => (b.cr - a.cr));
+        const referenceLatestRecord = latestRecords[0] || { cr: 0, or: 0 };
+        
         results.push({
             branch: branch,
             probability: probability,
             safetyLabel: safetyLabel,
             safetyClass: safetyClass,
-            yearData: yearData,
-            years: years.sort((a, b) => a - b) // ascending for charts
+            branchRecords: branchRecords.sort((a, b) => {
+                if (a.year !== b.year) return a.year - b.year; // ascending years
+                return (a.round || '').localeCompare(b.round || ''); // sequential rounds
+            }),
+            latestYear: latestYear,
+            latestCR: referenceLatestRecord.cr,
+            years: Array.from(new Set(years)).sort((a, b) => a - b) // ascending unique years for trend mapping
         });
     }
     
@@ -247,13 +260,7 @@ function handlePrediction(event) {
         if (safetyOrder[a.safetyClass] !== safetyOrder[b.safetyClass]) {
             return safetyOrder[a.safetyClass] - safetyOrder[b.safetyClass];
         }
-        
-        // Tie breaker: sort by latest year's closing rank
-        const aLatestYr = Math.max(...Object.keys(a.yearData).map(Number));
-        const bLatestYr = Math.max(...Object.keys(b.yearData).map(Number));
-        const aCR = a.yearData[aLatestYr]?.cr || 0;
-        const bCR = b.yearData[bLatestYr]?.cr || 0;
-        return aCR - bCR;
+        return a.latestCR - b.latestCR;
     });
     
     // Update summary counts
@@ -285,25 +292,20 @@ function renderResultsList(results, userRank) {
     }
     
     results.forEach((res, index) => {
-        const latestYear = Math.max(...res.years);
-        const latestCR = res.yearData[latestYear]?.cr;
-        const latestOR = res.yearData[latestYear]?.or;
-        
         const cardId = `branch-card-${index}`;
         const card = document.createElement('div');
         card.className = 'branch-card';
         card.id = cardId;
         
-        // Create table rows for the details section
+        // Render all counseling entries (Round 1, Round 2, etc.) in details table
         let tableRowsHTML = '';
-        res.years.forEach(yr => {
-            const data = res.yearData[yr];
+        res.branchRecords.forEach(rec => {
             tableRowsHTML += `
                 <tr>
-                    <td><strong>${yr}</strong></td>
-                    <td>${data.round || 'Final'}</td>
-                    <td class="text-center">${data.or || '—'}</td>
-                    <td class="text-center font-weight-bold" style="color: var(--color-gold);">${data.cr}</td>
+                    <td><strong>${rec.year}</strong></td>
+                    <td>${rec.round || 'Final'}</td>
+                    <td class="text-center">${rec.or || '—'}</td>
+                    <td class="text-center font-weight-bold" style="color: var(--color-gold);">${rec.cr}</td>
                 </tr>
             `;
         });
@@ -314,7 +316,7 @@ function renderResultsList(results, userRank) {
                     <span class="branch-title">${res.branch}</span>
                     <div class="branch-meta">
                         <span><i class="fa-solid fa-calendar-days"></i> Data available: ${res.years.join(', ')}</span>
-                        <span><i class="fa-solid fa-graduation-cap"></i> Latest CR (${latestYear}): <strong>${latestCR}</strong></span>
+                        <span><i class="fa-solid fa-graduation-cap"></i> Latest Max CR (${res.latestYear}): <strong>${res.latestCR}</strong></span>
                     </div>
                 </div>
                 <div style="display: flex; align-items: center;">
@@ -328,13 +330,12 @@ function renderResultsList(results, userRank) {
             <div class="branch-card-details">
                 <div class="details-inner">
                     <div class="chart-container">
-                        <span class="chart-title">4-Year Cutoff Trend vs Your Rank (${userRank})</span>
+                        <span class="chart-title">Cutoff Trend vs Your Rank (${userRank})</span>
                         <div id="chart-svg-container-${cardId}">
-                            <!-- SVG injected dynamically when expanded -->
-                        </div>
+                            </div>
                     </div>
                     <div class="details-table-container">
-                        <span class="details-table-title">Historical Cutoffs Summary</span>
+                        <span class="details-table-title">Historical Counselling Rounds Summary</span>
                         <table class="details-table">
                             <thead>
                                 <tr>
@@ -369,7 +370,6 @@ function toggleCard(cardId, resIndex, userRank) {
     
     if (!isExpanded) {
         card.classList.add('expanded');
-        // Fetch result object globally
         const res = window.currentResults[resIndex];
         // Render chart SVG
         renderCutoffChart(cardId, res, userRank);
@@ -383,7 +383,6 @@ function renderCutoffChart(cardId, res, userRank) {
     const container = document.getElementById(`chart-svg-container-${cardId}`);
     if (!container) return;
     
-    // Standardize chart coordinates: viewBox="0 0 320 140"
     const width = 320;
     const height = 140;
     const paddingLeft = 40;
@@ -391,69 +390,59 @@ function renderCutoffChart(cardId, res, userRank) {
     const paddingTop = 20;
     const paddingBottom = 20;
     
-    // Extract values
-    const dataPoints = res.years.map(yr => {
-        return { year: yr, cr: res.yearData[yr].cr };
+    // Compile peak structural points per year for dynamic vector pathing
+    const dataPoints = [];
+    res.years.forEach(yr => {
+        const yearRecords = res.branchRecords.filter(r => r.year === yr);
+        if (yearRecords.length > 0) {
+            // Pick max entry rank of that season for trending line points
+            const maxCr = Math.max(...yearRecords.map(r => r.cr));
+            dataPoints.push({ year: yr, cr: maxCr });
+        }
     });
     
-    // Include user rank in min/max to ensure they are on the chart
     const ranks = dataPoints.map(d => d.cr).concat([userRank]);
     const maxRank = Math.max(...ranks);
     const minRank = Math.min(...ranks);
     
-    // Add extra padding to min/max to keep points off the exact edges
     const rankRange = maxRank - minRank;
     const yMax = maxRank + (rankRange > 0 ? rankRange * 0.15 : 50);
     const yMin = Math.max(1, minRank - (rankRange > 0 ? rankRange * 0.15 : 50));
     
-    // Scale functions
     const getX = (year) => {
-        // Map 2022-2025 to 0-3 range
-        const yearIndex = year - 2022; // 0, 1, 2, 3
+        const yearIndex = year - 2022; // index positions mapping 2022-2025
         const chartWidth = width - paddingLeft - paddingRight;
         return paddingLeft + (yearIndex / 3) * chartWidth;
     };
     
     const getY = (rank) => {
-        // High ranks (lower numbers) go at the top, low ranks (larger numbers) at bottom
         const chartHeight = height - paddingTop - paddingBottom;
         const ratio = (rank - yMin) / (yMax - yMin);
-        // Invert so minRank is at the top (paddingTop) and maxRank is at bottom (height - paddingBottom)
         return height - paddingBottom - ratio * chartHeight;
     };
     
-    // Generate coordinate pairs for cutoff lines
     const coords = dataPoints.map(d => `${getX(d.year)},${getY(d.cr)}`);
     const linePath = coords.join(' ');
-    
-    // User rank Y coordinate
     const userRankY = getY(userRank);
     
-    // Build SVG elements
     let svgContent = `
         <svg class="chart-svg" viewBox="0 0 ${width} ${height}">
-            <!-- Grid Lines -->
             <line x1="${paddingLeft}" y1="${paddingTop}" x2="${width - paddingRight}" y2="${paddingTop}" stroke="rgba(255,255,255,0.05)" />
             <line x1="${paddingLeft}" y1="${height - paddingBottom}" x2="${width - paddingRight}" y2="${height - paddingBottom}" stroke="rgba(255,255,255,0.15)" />
             
-            <!-- Axes Labels -->
             <text x="${paddingLeft - 8}" y="${paddingTop + 4}" font-family="var(--font-body)" font-size="8" fill="var(--color-text-muted)" text-anchor="end">${Math.round(yMin)}</text>
             <text x="${paddingLeft - 8}" y="${height - paddingBottom + 3}" font-family="var(--font-body)" font-size="8" fill="var(--color-text-muted)" text-anchor="end">${Math.round(yMax)}</text>
             
-            <!-- X Axis Year Labels -->
             ${[2022, 2023, 2024, 2025].map(yr => `
                 <text x="${getX(yr)}" y="${height - 4}" font-family="var(--font-body)" font-size="8" fill="var(--color-text-muted)" text-anchor="middle">${yr}</text>
                 <line x1="${getX(yr)}" y1="${height - paddingBottom}" x2="${getX(yr)}" y2="${height - paddingBottom + 3}" stroke="rgba(255,255,255,0.2)" />
             `).join('')}
             
-            <!-- User Rank Reference Line -->
             <line x1="${paddingLeft}" y1="${userRankY}" x2="${width - paddingRight}" y2="${userRankY}" stroke="var(--color-gold)" stroke-width="1.5" stroke-dasharray="3,3" />
             <text x="${width - paddingRight}" y="${userRankY - 4}" font-family="var(--font-heading)" font-size="8" font-weight="700" fill="var(--color-gold)" text-anchor="end">Your Rank: ${userRank}</text>
             
-            <!-- Cutoff Trend Line -->
             ${coords.length > 1 ? `<polyline points="${linePath}" fill="none" stroke="var(--color-red-glow)" stroke-width="2.5" class="chart-line" />` : ''}
             
-            <!-- Cutoff Trend Points -->
             ${dataPoints.map(d => `
                 <circle cx="${getX(d.year)}" cy="${getY(d.cr)}" r="4.5" fill="var(--color-bg-dark)" stroke="var(--color-red-deep)" stroke-width="2" class="chart-dot" />
                 <text x="${getX(d.year)}" y="${getY(d.cr) - 8}" font-family="var(--font-body)" font-size="8.5" font-weight="600" fill="var(--color-text-white)" text-anchor="middle">${d.cr}</text>
@@ -480,7 +469,7 @@ function updateExplorerFilters() {
     
     records.forEach(rec => {
         if (rec.category) categories.add(rec.category);
-        if (rec.branch) branches.add(rec.branch);
+        if (rec.branch) branches.add(normalizeBranchName(rec.branch));
     });
     
     // Populate Categories Filter
@@ -521,16 +510,19 @@ function runExplorerSearch() {
     
     // Filter records
     const filteredRecords = records.filter(rec => {
+        const normalizedBranchName = normalizeBranchName(rec.branch);
         const matchYear = (yearFilter === 'all' || String(rec.year) === yearFilter);
         const matchCat = (catFilter === 'all' || rec.category === catFilter);
-        const matchBranch = (branchFilter === 'all' || rec.branch === branchFilter);
+        const matchBranch = (branchFilter === 'all' || normalizedBranchName === branchFilter);
         return matchYear && matchCat && matchBranch;
     });
     
     // Sort records: Year desc, Branch asc, Category asc, Round asc
     filteredRecords.sort((a, b) => {
+        const branchA = normalizeBranchName(a.branch);
+        const branchB = normalizeBranchName(b.branch);
         if (a.year !== b.year) return b.year - a.year;
-        if (a.branch !== b.branch) return a.branch.localeCompare(b.branch);
+        if (branchA !== branchB) return branchA.localeCompare(branchB);
         if (a.category !== b.category) return a.category.localeCompare(b.category);
         const aRound = a.round || '';
         const bRound = b.round || '';
@@ -556,7 +548,7 @@ function runExplorerSearch() {
         const row = document.createElement('tr');
         row.innerHTML = `
             <td><strong>${rec.year}</strong></td>
-            <td>${rec.branch}</td>
+            <td>${normalizeBranchName(rec.branch)}</td>
             <td><span class="badge-cat">${rec.category}</span></td>
             <td>${rec.quota || '—'}</td>
             <td>${rec.round || 'Final'}</td>
